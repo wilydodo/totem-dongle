@@ -1,14 +1,23 @@
 include:
+  # 1. 토템 좌측 (Peripheral로 역할 변경 필수)
   - board: seeeduino_xiao_ble
     shield: totem_left
-    
+    cmake-args: -DCONFIG_ZMK_SPLIT_ROLE_CENTRAL=n
+
+  # 2. 토템 우측 (기존과 동일하게 Peripheral)
   - board: seeeduino_xiao_ble
     shield: totem_right
-    
-  - board: nice_nano_v2
+
+  # 3. Holyiot nRF52840 동글 (Central 역할)
+  - board: nrf52840dongle/nrf52840/zmk
     shield: totem_dongle
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
-    
+
+  # 4. 초기화용 펌웨어 (토템 좌/우용)
   - board: seeeduino_xiao_ble
+    shield: settings_reset
+
+  # 5. 초기화용 펌웨어 (Holyiot 동글용)
+  - board: nrf52840dongle/nrf52840/zmk
     shield: settings_reset
