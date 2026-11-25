@@ -9,7 +9,7 @@ include:
     shield: totem_right
 
   # 3. Holyiot nRF52840 동글 (Central 역할)
-  - board: nrf52840dongle/nrf52840/zmk
+  - board: nrf52840dongle_nrf52840
     shield: totem_dongle
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
@@ -19,5 +19,5 @@ include:
     shield: settings_reset
 
   # 5. 초기화용 펌웨어 (Holyiot 동글용)
-  - board: nrf52840dongle/nrf52840/zmk
+  - board: nrf52840dongle_nrf52840
     shield: settings_reset
